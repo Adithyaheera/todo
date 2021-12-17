@@ -1,0 +1,52 @@
+<body>
+  <ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">personal profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">items list</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">views</a>
+  </li>
+</ul>
+
+
+  <div class="container">
+  
+    <div class="row">
+
+
+
+  
+  
+      <form [formGroup]="todoForm" (ngSubmit)="todoClick(task.value)">
+  
+  
+        <h2>{{name}}</h2>
+         <div> <input type="text" id="name" name="name" formControlName="name" placeholder="list of the items" #task></div>
+        <div *ngIf="(this.todoForm.get('name')?.touched||this.todoForm.get(name)?.dirty)" class="error">error</div>
+        <br>
+        <br>
+        <button class="btn btn-warning" type="submit" name="btnClick">list todo product</button>
+        <br>
+        <br>
+         <ul *ngFor="let item of list ">
+          <li>{{item.name}} <button class="btn btn-success" (click)="removeTask(item.id)">delete todo</button> </li>
+        </ul>
+       <a routerLink="drop">list please</a>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+
+</body>
+
